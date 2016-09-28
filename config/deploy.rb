@@ -3,9 +3,12 @@ lock '3.6.1'
 
 set :application, 'gameday'
 set :repo_url, 'git@github.com:JamesWojewoda/gameday.git'
-set :deploy_to, 'var/www/gameday'
+set :user, 'ubuntu'
+set :deploy_to, '/var/www/gameday'
 set :branch, fetch(:branch, "master")
-
+set :rvm_ruby_version, '2.3.0'
+set :bundle_flags, '--deployment'
+set :rails_env, fetch(:stage)
 
 set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
@@ -27,7 +30,7 @@ set :puma_init_active_record, false  # Change to true if using ActiveRecord
 # set :linked_files, %w{config/database.yml}
 # set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/secrets.yml', 'config/database.yml')
+set :linked_files, %w{config/secrets.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets','vendor/bundle', 'public/system', 'public/uploads')
@@ -70,7 +73,6 @@ namespace :deploy do
       invoke 'puma:restart'
     end
   end
-
   # before :starting,     :check_revision
   # after  :finishing,    :compile_assets
   after  :finishing,    :cleanup
