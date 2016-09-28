@@ -19,7 +19,7 @@ staging:
   encoding: unicode
   database: gameday
   username: postgres
-  password: 9Ynavcs
+  password: postgres
   pool: 5
   host: localhost
   port: 5432
