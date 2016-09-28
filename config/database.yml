@@ -13,3 +13,13 @@ development:
   pool: 5
   host: localhost
   port: 5432
+
+staging:
+  adapter: postgresql
+  encoding: unicode
+  database: gameday
+  username: postgres
+  password: 9Ynavcs
+  pool: 5
+  host: localhost
+  port: 5432
