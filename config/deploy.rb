@@ -1,6 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.6.1'
-
+require 'rvm/capistrano'
+require 'bundler/capistrano'
 set :application, 'gameday'
 set :repo_url, 'git@github.com:JamesWojewoda/gameday.git'
 set :user, 'ubuntu'
