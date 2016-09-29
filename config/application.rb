@@ -22,5 +22,6 @@ module Gameday
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.secret_key_base = 'eeed6464b1b6b9f453587f82376f5c9bd43bc4faf1c380bee900246307d5383d95a9925f548089457c7cac17e05300f0345c96aabb3bc70e7f7444fb0d2d8b1b'
   end
 end
