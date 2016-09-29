@@ -3,7 +3,7 @@ class VideosController < ApplicationController
 		r_videos = Video.where(email: params[:email], source: params[:source]).to_a
 		render json: r_videos
 	end
-	def new
+	def create
 		video = Video.new(video_params)
 		if video.save
 			render json: video, status: :created
