@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928151152) do
+ActiveRecord::Schema.define(version: 20160929155201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "videos", force: :cascade do |t|
-    t.integer "stream_id"
-    t.string  "stream_name"
-    t.string  "email"
-    t.string  "url"
-    t.string  "source"
+    t.integer  "stream_id"
+    t.string   "stream_name"
+    t.string   "email"
+    t.string   "url"
+    t.string   "source"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
